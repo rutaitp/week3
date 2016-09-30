@@ -32,10 +32,11 @@ function setup() {
 
 	  	function gotData(data) {
 	  		for (var i = 0; i < data.length; i++) {
-      			item = createSpan(data[i].Word + ' ');
+      			item = createSpan(data[i].Word);
       			item.parent(listPar);
       			item.mouseClicked(rhyme);
             item.mousePressed(wikipedia);
+            createSpan(' ').parent(listPar);
     		}
   		}
   	}
