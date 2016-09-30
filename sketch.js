@@ -16,12 +16,6 @@ function setup() {
   	var button1 = select('#generate');
   	button1.mousePressed(generateList);
 
-  	// var button2 = select('#wikipedia');
-  	// button2.mousePressed(wikipedia);
-
-  	// var button3 = select('#rhyme');
-  	// button3.mousePressed(rhyme);
-
   	function generateList() {
   		// Tabletop expects some settings
   		var settings = {
@@ -50,18 +44,13 @@ function setup() {
 		 console.log(this.html());
      var word = this.html();
      this.style('background-color', '#20B2AA');
-     newP = createP(word);
-     newP.style('text-decoration', 'underline');
      rhymes = lexicon.rhymes(word);
-     console.log(rhymes); // comes back with the length of 0
-      if (rhymes.length > 0) {
-        return random(rhymes);
-        newP = createP(rhymes);
-        console.log(rhymes);
-      } else {
-        return word;
-        newP = createP(word);
-      }
+     console.log(rhymes); // display all the rhyming words
+
+     for (var i=0; i<rhymes.length; i++) {
+      newP = createSpan(rhymes[i] + ', ');
+      newP.style('text-decoration', 'underline');
+     }
 		}
 
     function wikipedia(data) {
